@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SH Balance</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+            <div class="top">
+                <div class="table">
+                    <div class="row r1">
+                        <div class="col c1">
+                            <h3>Balance</h3>
+                        </div>
+                        <div class="col c2">
+                            <h3 id="balanceTotal">Nil</h3>
+                        </div>
+                        <div class="col c3">
+                            <button onclick="loadBalance()" id="reloadBalance"><i class="fa fa-refresh fa-spin"
+                                    style="font-size:18px"></i></button>
+                            <button onclick="showPopup()" id="editBalance"><i class="fa fa-edit" style="font-size:20px"></i></button>
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col c2">
+                            <h4>CASH</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="cash">_____</h4>
+                        </div>
+                        <div class="col">
+                            <h4>ACCOUNT</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="acc">_____</h4>
+                        </div>
+                    </div>
+                    <div class="row r3">
+                        <div class="col c3">
+                            <h4>HDFC</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="hdfc">_____</h4>
+                        </div>
+                        <div class="col">
+                            <h4>BOB</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="bob">_____</h4>
+                        </div>
+                    </div>
+                    <div class="row r4">
+                        <div class="col c4">
+                            <h4>UPI LITE</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="upi">_____</h4>
+                        </div>
+                        <div class="col">
+                            <h4>Amazon Bal</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="amz">_____</h4>
+                        </div>
+                    </div>
+                    <div class="row r5">
+                        <div class="col c5">
+                            <h4>IRCTC</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="irctc">_____</h4>
+                        </div>
+                        <div class="col">
+                            <h4>UTS</h4>
+                        </div>
+                        <div class="col">
+                            <h4 id="uts">_____</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="bottom">
+                <h2>New Entry</h2>
+                <form id="transactionForm" method="POST">
+                    <label for="date">Date:<p id="todayDate">Loading.....</p> </label>
+                    <input type="date" id="date" name="date" placeholder="dd/mm/yyyy" required>
+                    <label  for="description">Description:</label>
+                    <input onfocus="this.value=''" type="text" id="description" name="description" required>
+                    <label for="amount">Amount:</label>
+                    <input onfocus="this.value=''" type="number" id="amount" name="amount" required>
+                    <label for="type">Type:</label>
+                    <select id="type" name="type" required>
+                        <option class="income" value="Income">Credit</option>
+                        <option class="expense" value="Expense">Debit</option>
+                    </select>
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="overlay"></div>
+
+    <div id="popupForm">
+        <h3>Update Balance</h3>
+        <button type="button" id="closePopup" onclick="closePopup()">X</button>
+        <form id="dataForm">
+            <div class="form-field">
+                <label for="cash">Cash:</label>
+                <input onfocus="this.value=''" type="number" id="cashu" name="cash" />
+                <span class="prev-value" id="cashPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="hdfc">HDFC:</label>
+                <input onfocus="this.value=''" type="number" id="hdfcu" name="hdfc" />
+                <span class="prev-value" id="hdfcPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="bob">BOB:</label>
+                <input onfocus="this.value=''" type="number" id="bobu" name="bob" />
+                <span class="prev-value" id="bobPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="upi">UPI:</label>
+                <input onfocus="this.value=''" type="number" id="upiu" name="upi" />
+                <span class="prev-value" id="upiPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="amz">AMZ:</label>
+                <input onfocus="this.value=''" type="number" id="amzu" name="amz" />
+                <span class="prev-value" id="amzPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="irctc">IRCTC:</label>
+                <input onfocus="this.value=''" type="number" id="irctcu" name="irctc" />
+                <span class="prev-value" id="irctcPrev">Prev: </span>
+            </div>
+
+            <div class="form-field">
+                <label for="uts">UTS:</label>
+                <input onfocus="this.value=''" type="number" id="utsu" name="uts" />
+                <span class="prev-value" id="utsPrev">Prev: </span>
+            </div>
+
+            <button type="button" onclick="updateSubmitData()">Submit</button>
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="functionCall.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // Initialize Flatpickr with dd/mm/yyyy format
+        flatpickr("#date", {
+            dateFormat: "d/m/Y",  // Format set to dd/mm/yyyy
+            defaultDate: "today",  // Set default date to today's dates
+            maxDate: "today",
+        });
+
+        
+    </script
+</body>
+</html>

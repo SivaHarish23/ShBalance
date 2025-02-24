@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 80%;
+            height: 400px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        thead {
+            position: sticky;
+            top: 0;
+            background-color: #f4f4f4;
+            z-index: 1;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Data Array
+        const data = [
+            ['30/12/2024', 'salary', '', '28316', '28746.95'],
+            ['30/12/2024', 'mom', '8000', '', '20746.95'],
+            ['30/12/2024', 'rent', '4000', '', '16746.95'],
+            ['30/12/2024', 'fish', '150', '', '16596.95'],
+            ['30/12/2024', 'rathnam', '375', '', '16221.95'],
+            ['30/12/2024', 'movie', '260', '', '15961.95'],
+            ['30/12/2024', 'trip stay', '1000', '', '14961.95'],
+            ['30/12/2024', 'mom', '', '2500', '17461.95'],
+            ['30/12/2024', 'friend', '100', '', '17361.95'],
+            ['30/12/2024', 'tea', '20', '', '17341.95'],
+            ['30/12/2024', 'fish', '210', '', '17131.95'],
+            ['30/12/2024', 'green chilli', '10', '', '17121.95'],
+            ['30/12/2024', 'charity ', '1000', '', '16121.95'],
+            ['31/12/2024', 'dinner', '144', '', '15977.95'],
+            ['02/01/2025', 'mom', '', '100', '16077.95'],
+            ['02/01/2025', 'hdfc', '', '53.09', '16131.04'],
+            ['02/01/2025', 'mama vandi', '2000', '', '14131.04'],
+            ['02/01/2025', 'friend', '140', '', '13991.04'],
+            ['02/01/2025', 'bike insurance', '2253', '', '11738.04'],
+            ['02/01/2025', 'coffee', '15', '', '11723.04'],
+            ['03/01/2025', 'haircut', '200', '', '11523.04'],
+            ['03/01/2025', 'friend', '90', '', '11433.04'],
+            ['03/01/2025', 'tea', '30', '', '11403.04'],
+            ['03/01/2025', 'phone case', '159', '', '11244.04'],
+            ['06/01/2025', 'mom', '', '2023', '13267.04'],
+            ['06/01/2025', 'tea', '15', '', '13252.04'],
+            ['06/01/2025', 'dinner', '895', '', '12357.04'],
+            ['06/01/2025', 'friend', '', '600', '12957.04'],
+            ['06/01/2025', 'mom', '', '600', '13557.04'],
+            ['06/01/2025', 'aachi', '500', '', '13057.04'],
+            ['04/01/2025', 'Investment', '1500', '', '11557.04'],
+            ['07/01/2025', 'mama vandi', '1000', '', '10557.04'],
+            ['07/01/2025', 'trip stay', '700', '', '9857.04'],
+            ['07/01/2025', 'petrol', '200', '', '9657.04'],
+            ['07/01/2025', 'tea', '20', '', '9637.04'],
+            ['07/01/2025', 'dinner', '244', '', '9393.04'],
+            ['08/01/2025', 'tea', '40', '', '9353.04'],
+            ['08/01/2025', 'tea', '40', '', '9313.04'],
+            ['08/01/2025', 'lunch', '65', '', '9248.04'],
+            ['08/01/2025', 'data', '140.9', '', '9107.14'],
+            ['08/01/2025', 'Accenture', '', '6725.2', '15832.34'],
+            ['08/01/2025', 'Dad', '100', '', '15732.34'],
+            ['09/01/2025', 'Mama Vandi', '531', '', '15201.34'],
+            ['09/01/2025', 'Mom Paracetamol', '15', '', '15186.34'],
+            ['09/01/2025', 'Mom', '', '50', '15236.34'],
+            ['01/10/2025', 'Movie', '1300', '', '13936.34']
+        ];
+
+        // Populate the table
+        const tableBody = document.getElementById('tableBody');
+
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+                const td = document.createElement('td');
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>

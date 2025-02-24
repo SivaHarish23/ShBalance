@@ -1,0 +1,21 @@
+{
+  "name": "shbalance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "googleapis": "^144.0.0",
+    "oath": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}

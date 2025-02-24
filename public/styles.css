@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+.container {
+    background-color: gray;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left, .right {
+    height: 90%;
+    width: 40%;
+}
+
+.left {
+    /* background-color: red; */
+    overflow-y: auto;
+}
+
+.right {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.right .top, .right .bottom {
+    width: 90%;
+}
+
+.right .top {
+    height: 30%;
+    background-color: lightcoral;
+}
+
+.right .bottom {
+    height: 60%;
+    /* background-color: wheat; */
+    display: flex;
+    flex-direction: column;
+}
+
+.right .bottom h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: lightblue; */
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+form label {
+    display: flex;
+    margin-top: 7px;
+}
+
+#todayDate {
+    margin-left: 20px;
+}
+
+input {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for the date input */
+input:hover {
+    cursor: pointer;
+    border-color: #4CAF50;
+    background-color: #e0f7e0;
+}
+
+/* Select styles for Income and Expense */
+select.income {
+    background-color: #d4edda;  /* Light green for Income */
+    border: 1px solid #28a745;  /* Green border for Income */
+}
+
+select.expense {
+    background-color: #f8d7da;  /* Light red for Expense */
+    border: 1px solid #dc3545;  /* Red border for Expense */
+}
+
+.table{
+    border-style: solid;
+    height: 100%;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.row{
+    /* border-style: solid; */
+    height: 20%;
+    /* background-color: pink; */
+    display: flex;
+    justify-content: center;
+}
+
+.col{
+    width: 25%;
+    /* border-style: solid; */
+    /* height: 20%; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.r1 .c1{
+    width: 40%;
+}
+.r1 .c2{
+    width: 40%;
+}
+.r1 .c3{
+    width: 20%;
+    justify-content: space-around;
+}
+
+.col h4{
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.r1 button{
+    background-color: transparent;
+    border: 0   ;
+}
+
+.r1 button:hover{
+    background-color: #005bb5;
+    transform: rotate(360deg);
+}
+
+
+
+/* Popup Form Style */
+#popupForm {
+    z-index: 5;
+    width: 30%;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    margin-right: 10px;
+}
+
+#dataForm input {
+    margin: 5px;
+    padding: 5px;
+    width: 100px;
+}
+
+#dataForm .prev-value {
+    margin-left: 15px;
+    color: grey;
+}
+
+#dataForm button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+
+#closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 1;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
