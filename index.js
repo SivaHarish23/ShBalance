@@ -4,7 +4,7 @@ const fs = require("fs");
 const express = require("express");
 const spreadsheetId = "1yqNXJI9-n6VUmwCx61VaEGNyTvdBjQf7Kow_pk0Sq1U";
 const range = "Sheet1";
-const credentials = JSON.parse(fs.readFileSync("service-account.json", "utf8")); // Replace with your service account JSON file
+const credentials = JSON.parse(fs.readFileSync(path.join(__dirname,'etc/secrets/service-account.json'), "utf8")); // Replace with your service account JSON file
 const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
