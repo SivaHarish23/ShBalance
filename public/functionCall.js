@@ -26,8 +26,8 @@ async function loadBalance() {
     const data = await fetchBalance();
     var acc = data.hdfc + data.bob + data.upi + data.amz + data.uts + data.irctc;
     var balanceTotal = acc + data.cash;
-    document.getElementById("acc").textContent = acc;
-    document.getElementById("balanceTotal").textContent = balanceTotal;
+    document.getElementById("acc").textContent = acc.toFixed(2);
+    document.getElementById("balanceTotal").textContent = balanceTotal.toFixed(2);
 
     // Iterate over the JSON keys and set the respective <h3> values
     for (const [key, value] of Object.entries(data)) {
