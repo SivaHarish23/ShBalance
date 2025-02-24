@@ -171,7 +171,7 @@ async function writeData(resource) {
         ];
         // Execute the batch update to add rows
         await sheets.spreadsheets.batchUpdate({
-          spreadsheetId: ssId,
+          spreadsheetId: spreadsheetId,
           requestBody: { requests },
         });
 
