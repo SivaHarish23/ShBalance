@@ -2,7 +2,7 @@ const { google } = require("googleapis");
 const path = require("path");
 const fs = require("fs");
 const express = require("express");
-const spreadsheetId = "1yqNXJI9-n6VUmwCx61VaEGNyTvdBjQf7Kow_pk0Sq1U";
+const spreadsheetId = process.env.SPREADSHEETID;
 const range = "Sheet1";
 require('dotenv').config();
 const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // });
 // Endpoint to call readSheet and return data
 app.get("/fetchBalance", async (req, res) => {
-  const apiKey = "AIzaSyB5cU5S_BRANDqCmsnct_m_SSFmTepGCkQ";
+  const apiKey = process.env.GOOGLE_API_KEY;
   const sheets = google.sheets({
     version: "v4",
     auth: apiKey,
