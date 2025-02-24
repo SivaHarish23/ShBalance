@@ -4,7 +4,11 @@ const fs = require("fs");
 const express = require("express");
 const spreadsheetId = "1yqNXJI9-n6VUmwCx61VaEGNyTvdBjQf7Kow_pk0Sq1U";
 const range = "Sheet1";
-const credentials = JSON.parse(fs.readFileSync(path.join(__dirname,'etc/secrets/service-account.json'), "utf8")); // Replace with your service account JSON file
+require('dotenv').config();
+const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+console.log("Service Account JSON :- ");
+console.log(serviceAccount);
+// const credentials = JSON.parse(fs.readFileSync(path.join(__dirname,'etc/secrets/service-account.json'), "utf8")); // Replace with your service account JSON file
 const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
