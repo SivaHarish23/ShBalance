@@ -7,7 +7,7 @@ const range = "Sheet1";
 require('dotenv').config();
 const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
 console.log("Service Account JSON :- ");
-console.log(serviceAccount);
+console.log(credentials);
 // const credentials = JSON.parse(fs.readFileSync(path.join(__dirname,'etc/secrets/service-account.json'), "utf8")); // Replace with your service account JSON file
 const auth = new google.auth.GoogleAuth({
   credentials,
