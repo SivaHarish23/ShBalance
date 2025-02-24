@@ -76,6 +76,8 @@ document.getElementById("transactionForm").addEventListener("submit", function (
         .catch(error => {
             console.error("Error submitting data:", error);
         });
+
+    location.reload();
 });
 
 

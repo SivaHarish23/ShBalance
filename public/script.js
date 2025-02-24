@@ -120,4 +120,5 @@ async function updateSubmitData() {
 
     
     await loadBalance();
+    location.reload();
 }
